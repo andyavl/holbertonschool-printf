@@ -36,6 +36,16 @@ int main(void)
     printf("Address:[%p]\n", addr);
     len = _printf("Percent:[%%]\n");
     len2 = printf("Percent:[%%]\n");
+    _printf("Percent3:[%%%]\n");
+    printf("Percent3:[%%%]\n");
+    _printf("Percent4:[%%%%]\n");
+    printf("Percent4:[%%%%]\n");
+    _printf("Percent_:[% % %%]\n");
+    printf("Percent_:[% % %%]\n");
+    _printf("Percent__:[%1%% %c]\n", 'H');
+    printf("Percent__:[%1%% %c]\n", 'H');
+    _printf("Percent__3:[%1%22%333%%4444%%5]\n");
+    printf("Percent__3:[%1%22%333%%4444%%5]\n");
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
