@@ -60,18 +60,18 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = i + 1; format[j] != '\0'; j++)
+			ln = _print_spec(format[i + 1], argument);
+			if(ln != 0)
+				i += 2;
+			else
 			{
-				if (format[j] == '%')
+				for (j = i + 1; format[j] != '\0'; j++)
 				{
-					i = j;
-					break;
-				}
-				else if (format[j + 1] == '\0')
-				{
-					ln = _print_spec(format[i + 1], argument);
-					if(ln != 0)
-					i += 2;
+					if (format[j] == '%')
+					{
+						i = j;
+						break;
+					}
 				}
 			}
 		}
