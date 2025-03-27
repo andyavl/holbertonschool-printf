@@ -1,44 +1,70 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdarg.h>
-#include "main.h"
-/**
- * _printf - print format
- * @format: format of the imput
- * Return: The imput
- */
+#include <unistd.h>
+
+typedef struct t
+{
+	char *s;
+	int (*f)(va_list argument);
+}type;
+
+int _putchar(int c)
+{
+	return write(1, &c, 1);
+}
+
+int type_char_print(va_list argument)
+{
+	int ch = va_arg(argument, int);
+	return write(1, &ch, 1);
+}
+int type_string_print(va_list argument)
+{
+	char *arg = va_arg(argument, char*);
+	int j;
+
+	for (j = 0; arg[j] != '\0'; j++)
+		_putchar((int)arg[j]);
+	return(j);
+}
+
+int _print_spec(char spc, va_list argument)
+{
+	int i;
+
+	type specifier[] = {
+		{"c", type_char_print},
+		{"s", type_string_print},
+		{NULL, NULL}
+	};
+
+	i = 0;
+	while (specifier[i].s != NULL)
+	{
+		if (*(specifier[i].s) == spc)
+			return (specifier[i].f(argument));
+		i++;
+	}
+	return (0);
+}
 
 int _printf(const char *format, ...)
 {
-	int len = 0;
-	va_list arg_list;
-	int i;
-	int j;
-	char *str;
+	va_list argument;
+	int i = 0, ln = 0;
 
-	va_start(arg_list, format);
-
+	va_start(argument, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			i++;
-			if (format[i] == 's')
-			{
-					str = va_arg(arg_list, char *);
-
-				for (j = 0; str[j] != '\0'; j++)
-				{
-					putchar(str[j]);
-					len++;
-				}
-			}
-			else
-			{
-				putchar(format[i]);
-				len++;
-			}
+			ln = _print_spec(format[i + 1], argument);
+			if(ln != 0)
+				i += 2;
 		}
-		va_end(arg_list);
+		_putchar(format[i]);
 	}
-	return (len);
+	va_end(argument);
+	return (0);
 }
