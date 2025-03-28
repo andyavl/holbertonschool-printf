@@ -30,4 +30,10 @@ This custom _printf will print "%c" "%s" "%" "%d" "%i"
 
 - [Hector Perez](https://github.com/HectorPR4546)
 
+## License
+
+This proyect is made by Andy Vega, Hector Perez for Holberton Ponce
+
+Any one have the rigths to use this code.
+
 
