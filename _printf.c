@@ -1,35 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdarg.h>
-#include <unistd.h>
+#include <stddef.h>
+#include "main.h"
 
-typedef struct t
-{
-	char *s;
-	int (*f)(va_list argument);
-}type;
-
-int _putchar(int c)
-{
-	return write(1, &c, 1);
-}
-
-int type_char_print(va_list argument)
-{
-	int ch = va_arg(argument, int);
-	write(1, &ch, 1);
-}
-
-int type_string_print(va_list argument)
-{
-	char *arg = va_arg(argument, char*);
-	int j;
-
-	for (j = 0; arg[j] != '\0'; j++)
-		_putchar((int)arg[j]);
-	return(j);
-}
-
+/**
+ * _print_spec - selects fuction based on specifier
+ * @spc: specifier to compare
+ * @argument: argument to use on selected fuction
+ * Return: result of selected fuction or 0 specifier doesnt match
+ */
 int _print_spec(char spc, va_list argument)
 {
 	int i;
@@ -37,6 +15,9 @@ int _print_spec(char spc, va_list argument)
 	type specifier[] = {
 		{"c", type_char_print},
 		{"s", type_string_print},
+		{"d", type_digit_print},
+		{"i", type_digit_print},
+		{"x", type_hexa_print},
 		{NULL, NULL}
 	};
 
@@ -50,6 +31,11 @@ int _print_spec(char spc, va_list argument)
 	return (0);
 }
 
+/**
+ * _printf - fuctions that outputs a string, temu printf
+ * @format: values to print
+ * Return: amount of chars printed
+ */
 int _printf(const char *format, ...)
 {
 	va_list argument;
@@ -61,7 +47,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			ln = _print_spec(format[i + 1], argument);
-			if(ln != 0)
+			if (ln != 0)
 				i += 2;
 			else
 			{
