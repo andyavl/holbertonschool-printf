@@ -6,13 +6,13 @@ Provided by Holberton Ponce PR
 
 ## Table of contents
 
--[Installation](#installation)
+- [Installation](#installation)
 
--[Usage](#usage)
+- [Usage](#usage)
 
--[Autors](#autors)
+- [Authors](#authors)
 
--[License](#license)
+- [License](#license)
 
 ## Installation
 
@@ -26,8 +26,8 @@ This custom _printf will print "%c" "%s" "%" "%d" "%i"
 
 ## Authors
 
-[Andy Vega](https://github.com/andyavl)
+- [Andy Vega](https://github.com/andyavl)
 
-[Hector Perez](https://github.com/HectorPR4546)
+- [Hector Perez](https://github.com/HectorPR4546)
 
 
