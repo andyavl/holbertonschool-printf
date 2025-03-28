@@ -24,10 +24,10 @@ Then on your terminal use this command: gcc -Wall -Wextra -Werror -pedantic -std
 
 This custom _printf will print "%c" "%s" "%" "%d" "%i"
 
-## Autors
+## Authors
 
-[Andy Vega Autor](https://github.com/andyavl)
+[Andy Vega](https://github.com/andyavl)
 
-[Hector Perez Contributor](https://github.com/HectorPR4546)
+[Hector Perez](https://github.com/HectorPR4546)
 
 
