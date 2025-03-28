@@ -6,7 +6,7 @@ In this proyect is about a custom printf
 
 -[Installation](#installation)
 -[Usage](#usage)
--[Cuntributing])(#contributing)
+-[Cuntributing](#contributing)
 -[License](#license)
 
 ## Installation
