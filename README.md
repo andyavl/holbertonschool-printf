@@ -16,9 +16,9 @@ Provided by Holberton Ponce PR
 
 ## Installation
 
-To instal this custom printf, on your terminal use this command: gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
+To instal this custom printf,You need to copy paste the followings files: "main.h" "main.c" "_printf.c"  
 
-You need to copy paste the followings files: "main.h" "main.c" "_printf.c" 
+Then on your terminal use this command: gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
 
 ## Usage
 
