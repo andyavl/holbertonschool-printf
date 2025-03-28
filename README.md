@@ -6,7 +6,7 @@ In this proyect is about a custom printf
 
 -[Installation](#installation)
 -[Usage](#usage)
--[Cuntributing](#contributing)
+-[Autors](#autors)
 -[License](#license)
 
 ## Installation
@@ -16,3 +16,10 @@ To instal this custom printf, on your terminal use this command: gcc -Wall -Wext
 ## Usage
 
 This custom _printf will print "%c" "%S" "%" "%d" "%i"
+
+## Autors
+
+Andy Vega [Autor](https://github.com/andyavl)
+Hector Perez [Contributor](https://github.com/HectorPR4546)
+
+
