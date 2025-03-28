@@ -5,8 +5,11 @@ In this proyect is about a custom printf
 ## Table of contents
 
 -[Installation](#installation)
+
 -[Usage](#usage)
+
 -[Autors](#autors)
+
 -[License](#license)
 
 ## Installation
