@@ -37,6 +37,6 @@ First will show the custom printf "_printf" then show the real "printf"
 
 This proyect is made by Andy Vega, Hector Perez for Holberton Ponce
 
-Any one have the rigths to use this code.
+Anyone have the rigths to use this code.
 
 
