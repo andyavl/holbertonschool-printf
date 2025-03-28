@@ -16,14 +16,14 @@ Provided by Holberton Ponce PR
 
 ## Installation
 
-To instal this custom printf,You need to copy paste the followings files: "main.h" "main.c" "_printf.c"  
+To instal this custom printf,You need to copy paste the followings files: main.h main.c _printf.c  
 
 Then on your terminal use this command: gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
 
 
 ## Usage
 
-This custom _printf will print "%c" "%s" "%" "%d" "%i"
+This custom _printf will print the following format specifiers: %c %s % %d %i
 
 First will show the custom printf "_printf" then show the real "printf"
 
