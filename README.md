@@ -25,7 +25,7 @@ Then on your terminal use this command: gcc -Wall -Wextra -Werror -pedantic -std
 
 This custom _printf will print the following format specifiers: %c %s % %d %i
 
-First will show the custom printf "_printf" then show the real "printf"
+First will show the custom printf _printf then show the real printf
 
 ## Authors
 
