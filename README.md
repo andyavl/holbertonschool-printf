@@ -22,7 +22,7 @@ You need to copy paste the followings files: "main.h" "main.c" "_printf.c"
 
 ## Usage
 
-This custom _printf will print "%c" "%S" "%" "%d" "%i"
+This custom _printf will print "%c" "%s" "%" "%d" "%i"
 
 ## Autors
 
