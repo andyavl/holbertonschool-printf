@@ -34,12 +34,13 @@ int _print_spec(char spc, va_list argument)
 /**
  * _printf - fuctions that outputs a string, temu printf
  * @format: values to print
- * Return: amount of chars printed
+ * Return: amount of chars printed or -1 for % error
  */
 int _printf(const char *format, ...)
 {
 	va_list argument;
-	int i = 0, j = 0, ln = 0, countfmt = 0, countarg = 0, limit = 0;
+	char const *tmp = format;
+	int i = 0, ln = 0, countfmt = 0, countarg = 0, limit = 0;
 
 	va_start(argument, format);
 	for (i = 0; format[i] != '\0'; i++)
@@ -61,25 +62,12 @@ int _printf(const char *format, ...)
 			}
 			else if (ln == 0)
 			{
-				if (format[i + 1] != '\0')
-				{
-					for (j = i + 1; format[j] != '\0'; j++)
-					{
-						if (format[j] == '%')
-						{
-							i = j;
-							break;
-						}
-					}
-				}
-				else
+				if (module_check(tmp, i) == -1)
 					return (-1);
+				i = module_check(tmp, i);
 			}
 		}
-		if (limit != 1)
-			_putchar(format[i]);
-		if (format[i] != '\0' && limit != 1)
-			countfmt++;
+		countfmt += control_put(tmp, limit, i);
 		limit = 0;
 	}
 	va_end(argument);
