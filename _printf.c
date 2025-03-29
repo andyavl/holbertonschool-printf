@@ -39,43 +39,49 @@ int _print_spec(char spc, va_list argument)
 int _printf(const char *format, ...)
 {
 	va_list argument;
-	int i = 0, j = 0, ln = 0, count = 0;
+	int i = 0, j = 0, ln = 0, countfmt = 0, countarg = 0, limit = 0;
 
 	va_start(argument, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			ln += _print_spec(format[i + 1], argument);
+			ln = _print_spec(format[i + 1], argument);
+			countarg += ln;
 			if (ln != 0)
 			{
 				i++;
 				if (format[i + 1] == '\0')
 				{
 					va_end(argument);
-					return (count + ln);
+					return (countfmt + countarg);
 				}
 				else
-					i++;
+					limit++;
 			}
 			else if (ln == 0)
 			{
-				for (j = i + 1; format[j] != '\0'; j++)
+				if (format[i + 1] != '\0')
 				{
-					if (format[j] == '%')
+					for (j = i + 1; format[j] != '\0'; j++)
 					{
-						i = j;
-						break;
+						if (format[j] == '%')
+						{
+							i = j;
+							break;
+						}
 					}
 				}
+				else
+					return (-1);
 			}
 		}
-		_putchar(format[i]);
-		if (format[i] != '\0')
-		{
-			count++;
-		}
+		if (limit != 1)
+			_putchar(format[i]);
+		if (format[i] != '\0' && limit != 1)
+			countfmt++;
+		limit = 0;
 	}
 	va_end(argument);
-	return (count + ln);
+	return (countfmt + countarg);
 }
