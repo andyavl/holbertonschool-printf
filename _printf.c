@@ -46,10 +46,19 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			ln = _print_spec(format[i + 1], argument);
+			ln += _print_spec(format[i + 1], argument);
 			if (ln != 0)
-				i += 2;
-			else
+			{
+				i++;
+				if (format[i + 1] == '\0')
+				{
+					va_end(argument);
+					return (count + ln);
+				}
+				else
+					i++;
+			}
+			else if (ln == 0)
 			{
 				for (j = i + 1; format[j] != '\0'; j++)
 				{
@@ -63,8 +72,10 @@ int _printf(const char *format, ...)
 		}
 		_putchar(format[i]);
 		if (format[i] != '\0')
+		{
 			count++;
+		}
 	}
 	va_end(argument);
-	return (count);
+	return (count + ln);
 }
